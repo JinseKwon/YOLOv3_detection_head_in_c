@@ -110,11 +110,11 @@ int run_inference(OrtSession* session, const ORTCHAR_T* input_file, int img_sz) 
     ORT_ABORT_ON_ERROR(g_ort->SessionGetOutputCount(session, &out_count));
 
     char** input_names = (char**)malloc(in_count*sizeof(char*));
-    char** output_names = (char**)malloc(in_count*sizeof(char*));
+    char** output_names = (char**)malloc(out_count*sizeof(char*));
 
     for(int i = 0; i < out_count; i++){
         char* name;
-        ORT_ABORT_ON_ERROR(g_ort->SessionGetInputName(session, in_count-1, allocator, &name));
+        ORT_ABORT_ON_ERROR(g_ort->SessionGetInputName(session, i, allocator, &name));
         input_names[0] = name;
     }
     for(int i = 0; i < out_count; i++){
