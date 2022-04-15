@@ -390,9 +390,11 @@ int yolov3_det(float** onnx_out, char* file_name, int img_sz){
             }
         }
         printf("Debug : drawing done\n");
+        cvSaveImage("Predictions.jpg",input_img);
+        printf("Debug : saving the predicted image -> Predictions.jpg\n");
         cvShowImage("Object Detection",input_img);
         cvWaitKey(0);
-        cvSaveImage("Predictions.jpg",input_img);
+        
     }
     return 0;
 }
