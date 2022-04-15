@@ -1,0 +1,5 @@
+# onnxfile
+*.onnx
+
+# local run.sh
+local_run.sh
